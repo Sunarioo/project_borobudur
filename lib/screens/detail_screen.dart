@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_borobudur/models/candi.dart';
+import '../models/candi.dart';
 
 class DetailScreen extends StatelessWidget {
 

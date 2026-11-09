@@ -1,4 +1,5 @@
-import 'package:project_borobudur/models/candi.dart';
+
+import '../models/candi.dart';
 
 
 var candiList = [

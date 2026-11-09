@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:project_borobudur/data/candi_data.dart';
-import 'package:project_borobudur/screens/detail_screen.dart';
+import 'package:project_borobudur/screens/profile_screen.dart';
+import 'screens/detail_screen.dart';
+import 'data/candi_data.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: DetailScreen(candi: candiList[0]),
+      home: ProfileScreen(),
     );
   }
 }

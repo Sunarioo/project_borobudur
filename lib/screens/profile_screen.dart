@@ -11,8 +11,8 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   // TPDP 1 Variable
   bool isSignedIn = false;
-  String fullName = '';
-  String userName = '';
+  String fullName = 'Suna';
+  String userName = 'sunarioooooo';
   int favoriteCandiCount = 0;
   @override
   Widget build(BuildContext context) {
@@ -67,12 +67,46 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           fontSize: 18, fontWeight: FontWeight.bold)),
                     ]),
                   ),
-                  Expanded(
-                    child: Text(': $userName',
-                        style: const TextStyle(fontSize: 18)),
-                  ),
+                  Expanded(child: Text(': $userName',style: const TextStyle(fontSize: 18)),),
                 ]),
+                SizedBox(height: 4,),
+                Divider(color: Colors.deepPurple,),
+                Row(children: [
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 3,
+                    child: const Row(children: [
+                      Icon(Icons.person, color: Colors.blue),
+                      SizedBox(width: 8),
+                      Text('Nama', style: TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.bold)),
+                    ]),
+                  ),
+                  Expanded(child: Text(': $fullName',style: const TextStyle(fontSize: 18))),
+                  if (isSignedIn) const Icon(Icons.edit),
+                ]),
+                SizedBox(height: 4,),
+                Divider(color: Colors.deepPurple,),
+                Row(children: [
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 3,
+                    child: const Row(children: [
+                      Icon(Icons.favorite, color: Colors.red),
+                      SizedBox(width: 8),
+                      Text('Favorite', style: TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.bold)),
+                    ]),
+                  ),
+                  Expanded(child: Text(': $favoriteCandiCount',style: const TextStyle(fontSize: 18)),),
+                ]),
+                SizedBox(height: 4,),
+                Divider(color: Colors.deepPurple,),
+                SizedBox(height: 16,),
+                isSignedIn
+                ? TextButton(onPressed: (){}, child: const Text('Sign Out'))
+                : TextButton(onPressed: (){}, child: const Text('Sign In')),
                 // TODO 4 Profile Action
+
+            
               ],
             )
           ],

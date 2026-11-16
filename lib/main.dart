@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_borobudur/screens/profile_screen.dart';
+import 'package:project_borobudur/screens/sign_in_screen.dart';
 import 'screens/detail_screen.dart';
 import 'data/candi_data.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: ProfileScreen(),
+      home: SignInScreen(),
     );
   }
 }

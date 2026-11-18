@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:project_borobudur/providers/auth_provider.dart';
+import 'package:project_borobudur/providers/favorite_provider.dart';
+import 'package:provider/provider.dart';
  
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -14,6 +17,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   String fullName = 'Suna';
   String userName = 'sunarioooooo';
   int favoriteCandiCount = 0;
+  
 
 void signIn(){
   setState(() {
@@ -29,6 +33,13 @@ void signOut(){
 
   @override
   Widget build(BuildContext context) {
+    final favoriteCandiCount =
+    context.watch<FavoriteProvider>().count;
+    final auth = context.watch<AuthProvider>();
+
+    
+
+ 
     return Scaffold(
       body: Stack(
           children: [
@@ -109,7 +120,7 @@ void signOut(){
                           fontSize: 18, fontWeight: FontWeight.bold)),
                     ]),
                   ),
-                  Expanded(child: Text(': $favoriteCandiCount',style: const TextStyle(fontSize: 18)),),
+                  Expanded(child: Text(favoriteCandiCount > 0 ? '$favoriteCandiCount' : '',style: const TextStyle(fontSize: 18)),),
                 ]),
                 SizedBox(height: 4,),
                 Divider(color: Colors.deepPurple,),

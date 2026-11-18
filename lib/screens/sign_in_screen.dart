@@ -24,68 +24,73 @@ class SignInScreen extends StatefulWidget {
       appBar: AppBar(title: const Text('Sign In')),
 
       body: Center(
-        child: Form(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              // TODO 5 pengguna
-              TextFormField(
-                controller: _usernameController,
-                decoration: const InputDecoration(
-                  labelText: 'Nama Pengguna',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-
-              const SizedBox(height: 20,),
-
-              // TODO 6 sandi
-              TextFormField(
-                controller: _passwordController,
-                decoration: InputDecoration(
-                  labelText: 'Kata Sandi',
-                  errorText: _errorText.isNotEmpty ? _errorText : null,
-                  border: const OutlineInputBorder(),
-                  suffixIcon: IconButton(
-                    onPressed: () {
-                      setState(() {
-                        _obscurePassword= !_obscurePassword;
-                      });
-                    }, // diisi setelah jadi Stateful
-                    icon: Icon(_obscurePassword? Icons.visibility_off: Icons.visibility),
-                  ),
-                ),
-                obscureText: _obscurePassword,
-                
-              ), 
-
-              // TODO 7 Sign In
-              const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {},
-                child: const Text('Sign In'),
-              ),
-
-              // TODO 8 Sign Up
-              const SizedBox(height: 10),
-              RichText(
-                text: TextSpan(
-                  text: 'Belum punya akun? ',
-                  style: const TextStyle(fontSize: 16, color: Color.fromARGB(255, 146, 104, 219)),
-                  children: [
-                    TextSpan(
-                      text: 'Daftar di sini.',
-                      style: const TextStyle(
-                          color: Colors.blue,
-                          decoration: TextDecoration.underline),
-                      recognizer: TapGestureRecognizer()..onTap = () {},
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Form(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  // TODO 5 pengguna
+                  TextFormField(
+                    controller: _usernameController,
+                    decoration: const InputDecoration(
+                      labelText: 'Nama Pengguna',
+                      border: OutlineInputBorder(),
                     ),
-                  ],
-                ),
+                  ),
+            
+                  const SizedBox(height: 20,),
+            
+                  // TODO 6 sandi
+                  TextFormField(
+                    controller: _passwordController,
+                    decoration: InputDecoration(
+                      labelText: 'Kata Sandi',
+                      errorText: _errorText.isNotEmpty ? _errorText : null,
+                      border: const OutlineInputBorder(),
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            _obscurePassword= !_obscurePassword;
+                          });
+                        }, // diisi setelah jadi Stateful
+                        icon: Icon(_obscurePassword? Icons.visibility_off: Icons.visibility),
+                      ),
+                    ),
+                    obscureText: _obscurePassword,
+                    
+                  ), 
+            
+                  // TODO 7 Sign In
+                  const SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: const Text('Sign In'),
+                  ),
+            
+                  // TODO 8 Sign Up
+                  const SizedBox(height: 10),
+                  RichText(
+                    text: TextSpan(
+                      text: 'Belum punya akun? ',
+                      style: const TextStyle(fontSize: 16, color: Color.fromARGB(255, 146, 104, 219)),
+                      children: [
+                        TextSpan(
+                          text: 'Daftar di sini.',
+                          style: const TextStyle(
+                              color: Colors.blue,
+                              decoration: TextDecoration.underline),
+                          recognizer: TapGestureRecognizer()..onTap = () {},
+                        ),
+                      ],
+                    ),
+                  ),
+            
+                ],
               ),
-
-            ],
+            ),
           ),
         ),
       ),

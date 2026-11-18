@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:project_borobudur/providers/favorite_provider.dart';
 import 'package:project_borobudur/screens/profile_screen.dart';
 import 'package:project_borobudur/screens/sign_in_screen.dart';
+import 'package:provider/provider.dart';
 import 'screens/detail_screen.dart';
 import 'data/candi_data.dart';
 
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => FavoriteProvider()),
+        // ChangeNotifierProvider(create: (_) => AuthProvider()),
+      ],
+      child: const MyApp(),
+    ),);
+  
 }
 
 class MyApp extends StatelessWidget {
@@ -16,11 +25,26 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Wisata Candi',
+      title: 'Wisata Candi',  
       theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+        appBarTheme: const AppBarTheme(
+          iconTheme: IconThemeData(color: Colors.deepPurple),
+          titleTextStyle: TextStyle(
+            color: Colors.deepPurple,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple)
+            .copyWith(primary: Colors.deepPurple, surface: Colors.deepPurple[50]),
+        useMaterial3: true,
       ),
-      home: SignInScreen(),
+
+      home: DetailScreen(candi: candiList[0],),
     );
   }
+
+  
 }
+
+

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:project_borobudur/providers/favorite_provider.dart';
 import 'package:project_borobudur/screens/profile_screen.dart';
+import 'package:project_borobudur/screens/search_screen.dart';
 import 'package:project_borobudur/screens/sign_in_screen.dart';
 import 'package:provider/provider.dart';
 import 'screens/detail_screen.dart';
 import 'data/candi_data.dart';
+import 'screens/search_screen.dart';
 
 
 void main() {
@@ -40,7 +42,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
 
-      home: DetailScreen(candi: candiList[0],),
+      home: SearchScreen(),
     );
   }
 

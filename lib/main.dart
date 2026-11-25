@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_borobudur/providers/favorite_provider.dart';
+import 'package:project_borobudur/screens/home_screen.dart';
 import 'package:project_borobudur/screens/profile_screen.dart';
 import 'package:project_borobudur/screens/search_screen.dart';
 import 'package:project_borobudur/screens/sign_in_screen.dart';
@@ -41,8 +42,7 @@ class MyApp extends StatelessWidget {
             .copyWith(primary: Colors.deepPurple, surface: Colors.deepPurple[50]),
         useMaterial3: true,
       ),
-
-      home: SearchScreen(),
+      home: HomeScreen(),
     );
   }
 
